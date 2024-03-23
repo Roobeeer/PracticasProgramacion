@@ -30,7 +30,7 @@ public class Inventory {
         int count = 0;
         for(int i= 0;i<itemLength;i++){
             ClothingItem currentItem = items[i];
-            if(currentItem != null && currentItem.dameName().equals(name) && currentItem.dameSize()==size){
+            if(currentItem != null && currentItem.getName().equals(name) && currentItem.getSize()==size){
                 count++;
             }
         }
@@ -42,7 +42,7 @@ public class Inventory {
         if(stockContador>0){
             for(int i = 0;i<itemLength;i++){
                 ClothingItem currentItem = items[i];
-                if(currentItem !=null && currentItem.dameName().equals(name) && currentItem.dameSize()==size){
+                if(currentItem !=null && currentItem.getName().equals(name) && currentItem.getSize()==size){
                     for(int j = i;j<itemLength-1;j++){
                         items[j] = items[j+1];
                     }
@@ -61,7 +61,7 @@ public class Inventory {
         if (stockCount > 0) {
             for (int i = 0; i < itemLength; i++) {
                 ClothingItem currentItem = items[i];
-                if (currentItem != null && currentItem.dameName().equals(name) && currentItem.dameSize() == size) {
+                if (currentItem != null && currentItem.getName().equals(name) && currentItem.getSize() == size) {
                     eliminarItem(name,size);  // Eliminar la prenda del stock
                     return currentItem;
                 }

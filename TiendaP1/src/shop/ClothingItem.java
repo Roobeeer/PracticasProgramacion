@@ -17,29 +17,29 @@ public class ClothingItem {
     }
 
 
-    public String dameName(){
+    public String getName(){
         return name;
     }
-    public void ponName(String name){
+    public void setName(String name){
         this.name = name;
     }
 
-    public double damePrice(){
+    public double getPrice(){
         return price;
     }
 
-    public void ponPrice(double price){
+    public void setPrice(double price){
         this.price = price;
     }
 
-    public char dameSize(){
+    public char getSize(){
         return size;
     }
-    public void ponSize(char size){
+    public void setSize(char size){
         if(size == 'S'|| size == 'M' || size == 'L') {
             this.size = size;
         }else{
-            System.out.println("Tamaño inválido, no se ha modificado");
+            System.out.println("Tamaño inválido, no se ha visto modificado");
         }
     }
 

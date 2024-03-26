@@ -59,13 +59,7 @@ class TestClothingItem1{
             System.out.println("La clase no es correcta");
         }
     }
-    public static void main(String[] args) {
-        ClothingItem1 item1 = new ClothingItem1("Camisa", 25.99, 'M');
-        if (item1 != null) {
-            checkClass(item1.getClass());
-            System.out.println(item1);
-        }
     }
-    }
+
 
 

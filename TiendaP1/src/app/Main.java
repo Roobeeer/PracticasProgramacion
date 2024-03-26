@@ -1,42 +1,42 @@
 package app;
 import sales.SalesRegister;
 import shop.ClothingItem;
-import shop.Inventory;
+import shop.Inventory1;
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         // 2. Inicialización del inventario
-        Inventory inventory = new Inventory(100);
+        Inventory1 inventory1 = new Inventory1(100);
 
         // 3. COMPRUEBA que los diferentes métodos que hay añadido a la clase Inventory
         // funcionan correctamente ANTES DE CONTINUAR
 
         // 1. Comprueba que puedes añadir varias prendas al inventario
-        inventory.añadirItem((new ClothingItem("Camisa", 29.99, 'M')));
-        inventory.añadirItem(new ClothingItem("Pantalón", 39.99, 'L'));
-        inventory.añadirItem(new ClothingItem("Jersey", 49.99, 'S'));
+        inventory1.añadirItem((new ClothingItem("Camisa", 29.99, 'M')));
+        inventory1.añadirItem(new ClothingItem("Pantalón", 39.99, 'L'));
+        inventory1.añadirItem(new ClothingItem("Jersey", 49.99, 'S'));
 
         // 2. Comprueba que puedes comprobar el stock de una prenda
-        int stockCamisa = inventory.checkStock("Camisa", 'M');
+        int stockCamisa = inventory1.checkStock("Camisa", 'M');
         System.out.println("Stock de Camisa (M): " + stockCamisa);
 
         // 3. Comprueba que puedes eliminar una prenda y el inventario se encuentra en un estado consistente
-        inventory.eliminarItem("Jersey", 'S');
-        System.out.println("Inventario después de eliminar Jersey (S):\n" + inventory);
+        inventory1.eliminarItem("Jersey", 'S');
+        System.out.println("Inventario después de eliminar Jersey (S):\n" + inventory1);
 
         // 4. Comprueba que, sí imprime el inventario de manera directa por consola,
         // se invoca su método toString de manera implícita y se muestra el inventario en formato tabular
-        System.out.println("Inventario actual:\n" + inventory);
+        System.out.println("Inventario actual:\n" + inventory1);
 
         // 5. Comprueba que extractItem obtiene el artículo y es eliminado del stock
-        ClothingItem item = inventory.extractItem("Pantalón", 'L');
+        ClothingItem item = inventory1.extractItem("Pantalón", 'L');
         System.out.println("Artículo extraído: " + item);
-        System.out.println("Inventario después de extraer Pantalón (L):\n" + inventory);
+        System.out.println("Inventario después de extraer Pantalón (L):\n" + inventory1);
 
         // 6. Fija un MAX_ITEM y comprueba que no supera el límite del stock
         final int MAX_ITEM = 100;
-        if (inventory.checkStock("Camiseta",'M') <= MAX_ITEM) {
+        if (inventory1.checkStock("Camiseta",'M') <= MAX_ITEM) {
             System.out.println("El inventario no supera el límite máximo de stock.");
         } else {
             System.out.println("El inventario supera el límite máximo de stock.");
@@ -44,8 +44,8 @@ public class Main {
 
         // Verificar con la herramienta de test que todo es correcto
         // Comprueba que la clase Main está en el paquete 'app'
-        if (inventory != null) {
-            ClothingItem.checkClass(inventory.getClass());
+        if (inventory1 != null) {
+            ClothingItem.checkClass(inventory1.getClass());
         }
     }
 }
@@ -56,7 +56,7 @@ class Main2 {
 
     public static void main(String[] args) {
         // Inicialización del inventario y el Scanner
-        Inventory inventory = new Inventory();
+        Inventory1 inventory1 = new Inventory1();
         scanner = new Scanner(System.in);
 
         // Bucle principal del menú interactivo
@@ -68,13 +68,13 @@ class Main2 {
             // Manejar la opción seleccionada
             switch (opcion) {
                 case 1:
-                    opcionAgregarItem(inventory);
+                    opcionAgregarItem(inventory1);
                     break;
                 case 2:
-                    opcionListarInventario(inventory);
+                    opcionListarInventario(inventory1);
                     break;
                 case 3:
-                    opcionVenderPrenda(inventory);
+                    opcionVenderPrenda(inventory1);
                     break;
                 case 4:
                     opcionMostrarVentas();
@@ -104,7 +104,7 @@ class Main2 {
     }
 
     // Método para la opción 1: Agregar un artículo al inventario
-    private static void opcionAgregarItem(Inventory inventory) {
+    private static void opcionAgregarItem(Inventory1 inventory1) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
         System.out.println("Ingrese el nombre del artículo:");
         String nombre = scanner.nextLine();
@@ -115,25 +115,25 @@ class Main2 {
         char talla = scanner.nextLine().charAt(0);
 
         ClothingItem nuevoItem = new ClothingItem(nombre, precio, talla);
-        inventory.añadirItem(nuevoItem);
+        inventory1.añadirItem(nuevoItem);
         System.out.println("¡Artículo agregado al inventario!");
     }
 
     // Método para la opción 2: Listar inventario
-    private static void opcionListarInventario(Inventory inventory) {
+    private static void opcionListarInventario(Inventory1 inventory1) {
         System.out.println("----- INVENTARIO -----");
-        System.out.println(inventory);
+        System.out.println(inventory1);
     }
 
     // Método para la opción 3: Vender prenda
-    private static void opcionVenderPrenda(Inventory inventory) {
+    private static void opcionVenderPrenda(Inventory1 inventory1) {
         scanner.nextLine(); // Consumir el salto de línea pendiente
         System.out.println("Ingrese el nombre del artículo a vender:");
         String nombre = scanner.nextLine();
         System.out.println("Ingrese la talla del artículo a vender:");
         char talla = scanner.nextLine().charAt(0);
 
-        ClothingItem itemVendido = SalesRegister.processSale(inventory, nombre, talla);
+        ClothingItem itemVendido = SalesRegister.processSale(inventory1, nombre, talla);
         if (itemVendido != null) {
             System.out.println("¡Venta realizada! Se vendió: " + itemVendido);
         } else {

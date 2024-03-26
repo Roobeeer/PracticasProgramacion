@@ -1,12 +1,12 @@
 package shop;
 
-public class Inventory {
+public class Inventory1 {
 
     private static final int MAX_SIZE = 10;
     private ClothingItem[] items;
     private int itemLength;
 
-    public Inventory(){
+    public Inventory1(int MAX_SIZE){
         this.items = new ClothingItem[MAX_SIZE];
         this.itemLength = 0;
 
@@ -88,9 +88,9 @@ public class Inventory {
 
     class TestInventory{
         public static void main(String[] args) {
-            Inventory inventory = new Inventory();
-            if (inventory != null) {
-                TestClothingItem.checkClass(inventory.getClass());
+            Inventory1 inventory1 = new Inventory1(100);
+            if (inventory1 != null) {
+                TestClothingItem.checkClass(inventory1.getClass());
             }
 
         }

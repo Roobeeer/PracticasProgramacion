@@ -1,5 +1,10 @@
 package shop1;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.util.List;
+
 public class Inventory1 {
     private static final int MAX_SIZE = 10;
 
@@ -90,5 +95,7 @@ public class Inventory1 {
         System.out.println(inventory);
     }
 }
+
+
 
 

@@ -85,3 +85,13 @@ public class Inventory {
     }
 
     }
+
+    class TestInventory{
+        public static void main(String[] args) {
+            Inventory inventory = new Inventory();
+            if (inventory != null) {
+                TestClothingItem.checkClass(inventory.getClass());
+            }
+
+        }
+    }
